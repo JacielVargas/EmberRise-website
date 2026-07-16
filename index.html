@@ -19,9 +19,10 @@
         :root {
             --background: #000000;
             --ember: #ff5a00;
-            --ember-light: #ff8a2a;
-            --text: #f7f3ee;
-            --muted: #a79d94;
+            --ember-bright: #ff9a32;
+            --gold: #f6b34a;
+            --text: #f5eee6;
+            --muted: #b7aaa0;
         }
 
         * {
@@ -49,53 +50,53 @@
             min-height: 100vh;
             align-items: center;
             justify-content: center;
-            padding: 32px 20px;
+            padding: 28px 18px;
             isolation: isolate;
         }
 
         .background-glow {
             position: absolute;
-            top: 50%;
+            top: 43%;
             left: 50%;
-            width: 520px;
-            height: 520px;
-            transform: translate(-50%, -58%);
+            width: min(72vw, 620px);
+            aspect-ratio: 1;
+            transform: translate(-50%, -50%);
             border-radius: 50%;
             background:
                 radial-gradient(
                     circle,
-                    rgba(255, 90, 0, 0.18) 0%,
-                    rgba(255, 70, 0, 0.08) 35%,
-                    transparent 70%
+                    rgba(255, 95, 0, 0.22) 0%,
+                    rgba(255, 65, 0, 0.09) 38%,
+                    transparent 72%
                 );
-            filter: blur(18px);
+            filter: blur(26px);
             animation: glowPulse 4s ease-in-out infinite;
             z-index: -2;
         }
 
         .content {
-            width: min(92vw, 760px);
+            width: min(94vw, 820px);
             text-align: center;
-            animation: fadeIn 1.8s ease-out both;
+            animation: fadeIn 1.6s ease-out both;
         }
 
         .logo-wrap {
             position: relative;
-            width: clamp(190px, 30vw, 330px);
-            margin: 0 auto 34px;
+            width: clamp(180px, 29vw, 320px);
+            margin: 0 auto 18px;
         }
 
         .logo-wrap::after {
             content: "";
             position: absolute;
             left: 50%;
-            bottom: 3%;
-            width: 60%;
-            height: 14%;
+            bottom: 1%;
+            width: 66%;
+            height: 12%;
             transform: translateX(-50%);
             border-radius: 50%;
-            background: rgba(255, 82, 0, 0.38);
-            filter: blur(22px);
+            background: rgba(255, 86, 0, 0.48);
+            filter: blur(20px);
             animation: emberBase 3.2s ease-in-out infinite;
             z-index: -1;
         }
@@ -104,33 +105,93 @@
             display: block;
             width: 100%;
             height: auto;
+            background: transparent;
             filter:
-                drop-shadow(0 0 7px rgba(255, 151, 57, 0.8))
-                drop-shadow(0 0 20px rgba(255, 83, 0, 0.72))
-                drop-shadow(0 0 50px rgba(255, 45, 0, 0.42));
+                drop-shadow(0 0 7px rgba(255, 174, 71, 0.88))
+                drop-shadow(0 0 22px rgba(255, 84, 0, 0.75))
+                drop-shadow(0 0 52px rgba(255, 45, 0, 0.42));
             animation: breathe 3.2s ease-in-out infinite;
         }
 
-        h1 {
-            font-size: clamp(2.4rem, 7vw, 5rem);
+        .brand {
+            margin-top: 2px;
+            line-height: 0.9;
+        }
+
+        .brand-main {
+            display: block;
+            font-size: clamp(3.5rem, 12vw, 7.8rem);
             font-weight: 400;
-            letter-spacing: clamp(0.25rem, 1.3vw, 0.85rem);
-            line-height: 1;
+            letter-spacing: clamp(0.28rem, 1.8vw, 1.15rem);
+            color: transparent;
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffd67a 0%,
+                    #f3a632 34%,
+                    #e85a0a 72%,
+                    #8f2607 100%
+                );
+            background-clip: text;
+            -webkit-background-clip: text;
             text-shadow:
-                0 0 10px rgba(255, 86, 0, 0.18),
-                0 0 30px rgba(255, 86, 0, 0.12);
+                0 0 12px rgba(255, 129, 24, 0.3),
+                0 0 34px rgba(255, 82, 0, 0.2);
+        }
+
+        .brand-rise-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .brand-rise-row::before,
+        .brand-rise-row::after {
+            content: "";
+            width: clamp(42px, 10vw, 90px);
+            height: 1px;
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--ember)
+                );
+            box-shadow: 0 0 8px rgba(255, 85, 0, 0.7);
+        }
+
+        .brand-rise-row::after {
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--ember),
+                    transparent
+                );
+        }
+
+        .brand-rise {
+            display: block;
+            font-size: clamp(1.65rem, 5vw, 3.3rem);
+            font-weight: 400;
+            letter-spacing: clamp(0.55rem, 2vw, 1.35rem);
+            color: var(--gold);
+            text-shadow:
+                0 0 8px rgba(255, 144, 33, 0.35),
+                0 0 20px rgba(255, 79, 0, 0.18);
         }
 
         .story {
-            margin-top: 24px;
-            font-size: clamp(1.05rem, 2.2vw, 1.5rem);
-            line-height: 1.7;
+            max-width: 660px;
+            margin: 38px auto 0;
+            font-size: clamp(1.05rem, 2.4vw, 1.55rem);
+            line-height: 1.65;
             color: var(--muted);
             font-style: italic;
         }
 
         .story strong {
-            color: var(--ember-light);
+            color: var(--ember-bright);
             font-weight: 400;
         }
 
@@ -138,8 +199,8 @@
             display: inline-flex;
             align-items: center;
             gap: 14px;
-            margin-top: 32px;
-            color: var(--ember-light);
+            margin-top: 34px;
+            color: var(--ember-bright);
             font-family: Arial, Helvetica, sans-serif;
             font-size: 0.78rem;
             font-weight: 600;
@@ -176,7 +237,7 @@
             width: 3px;
             height: 3px;
             border-radius: 50%;
-            background: var(--ember-light);
+            background: var(--ember-bright);
             box-shadow:
                 0 0 6px var(--ember),
                 0 0 12px rgba(255, 65, 0, 0.8);
@@ -186,13 +247,13 @@
         }
 
         .ember:nth-child(1) {
-            left: 18%;
+            left: 16%;
             animation-duration: 7s;
             animation-delay: 0s;
         }
 
         .ember:nth-child(2) {
-            left: 29%;
+            left: 28%;
             width: 2px;
             height: 2px;
             animation-duration: 9s;
@@ -200,13 +261,13 @@
         }
 
         .ember:nth-child(3) {
-            left: 42%;
+            left: 41%;
             animation-duration: 8s;
             animation-delay: 4s;
         }
 
         .ember:nth-child(4) {
-            left: 57%;
+            left: 58%;
             width: 4px;
             height: 4px;
             animation-duration: 10s;
@@ -214,7 +275,7 @@
         }
 
         .ember:nth-child(5) {
-            left: 70%;
+            left: 71%;
             width: 2px;
             height: 2px;
             animation-duration: 7.5s;
@@ -222,7 +283,7 @@
         }
 
         .ember:nth-child(6) {
-            left: 82%;
+            left: 84%;
             animation-duration: 9.5s;
             animation-delay: 3s;
         }
@@ -231,31 +292,23 @@
             0%,
             100% {
                 transform: scale(1);
-                filter:
-                    drop-shadow(0 0 7px rgba(255, 151, 57, 0.75))
-                    drop-shadow(0 0 20px rgba(255, 83, 0, 0.65))
-                    drop-shadow(0 0 45px rgba(255, 45, 0, 0.34));
             }
 
             50% {
                 transform: scale(1.025);
-                filter:
-                    drop-shadow(0 0 10px rgba(255, 176, 82, 0.95))
-                    drop-shadow(0 0 28px rgba(255, 83, 0, 0.9))
-                    drop-shadow(0 0 70px rgba(255, 45, 0, 0.52));
             }
         }
 
         @keyframes glowPulse {
             0%,
             100% {
-                opacity: 0.72;
-                transform: translate(-50%, -58%) scale(0.96);
+                opacity: 0.7;
+                transform: translate(-50%, -50%) scale(0.96);
             }
 
             50% {
                 opacity: 1;
-                transform: translate(-50%, -58%) scale(1.05);
+                transform: translate(-50%, -50%) scale(1.05);
             }
         }
 
@@ -306,21 +359,30 @@
 
         @media (max-width: 600px) {
             .page {
-                padding: 24px 18px;
+                padding: 22px 16px;
             }
 
             .logo-wrap {
-                margin-bottom: 28px;
+                width: min(46vw, 230px);
+                margin-bottom: 14px;
             }
 
-            h1 {
+            .brand-main {
                 letter-spacing: 0.28rem;
             }
 
+            .brand-rise-row {
+                gap: 10px;
+                margin-top: 14px;
+            }
+
+            .brand-rise {
+                letter-spacing: 0.62rem;
+            }
+
             .story {
-                max-width: 340px;
-                margin-right: auto;
-                margin-left: auto;
+                max-width: 350px;
+                margin-top: 30px;
             }
 
             .coming-soon {
@@ -365,7 +427,13 @@
                 >
             </div>
 
-            <h1>EmberRise</h1>
+            <h1 class="brand">
+                <span class="brand-main">EMBER</span>
+
+                <span class="brand-rise-row">
+                    <span class="brand-rise">RISE</span>
+                </span>
+            </h1>
 
             <p class="story">
                 It started with a <strong>dream</strong>,
