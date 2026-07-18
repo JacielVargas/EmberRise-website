@@ -540,7 +540,7 @@
             }
         }
 .site-header {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -551,6 +551,16 @@
 
     padding: 24px 40px;
     box-sizing: border-box;
+
+            background: rgba(8, 8, 8, 0.58);
+backdrop-filter: blur(14px);
+-webkit-backdrop-filter: blur(14px);
+
+border-bottom: 1px solid rgba(255, 140, 50, 0.12);
+
+box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.28),
+    0 1px 12px rgba(255, 90, 0, 0.04);
 
     z-index: 10;
 }
