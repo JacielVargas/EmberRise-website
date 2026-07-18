@@ -21,20 +21,21 @@
         }
 
         body {
-            color: var(--text);
-            font-family: Georgia, "Times New Roman", serif;
-            overflow: hidden;
+    color: var(--text);
+    font-family: Georgia, "Times New Roman", serif;
+    overflow-x: hidden;
+    overflow-y: auto;
         }
 
         .page {
-            position: relative;
-            display: flex;
-            min-height: 100vh;
-            align-items: center;
-            justify-content: center;
-            padding: 28px 18px;
-            isolation: isolate;
-        }
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 18px;
+    isolation: isolate;
+}
 
         .background-glow {
             position: absolute;
