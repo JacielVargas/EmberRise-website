@@ -559,3 +559,7 @@
     color: rgba(255, 255, 255, 0.82);
     text-decoration: none;
 }
+.site-nav {
+    display: flex;
+    gap: 28px;
+}
