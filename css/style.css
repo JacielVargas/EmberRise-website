@@ -1,1 +1,388 @@
-/* EmberRise website styles */
+:root {
+            --background: #000000;
+            --ember: #ff5a00;
+            --ember-bright: #ff9a32;
+            --gold: #f6b34a;
+            --text: #f5eee6;
+            --muted: #b7aaa0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+            background: var(--background);
+        }
+
+        body {
+            color: var(--text);
+            font-family: Georgia, "Times New Roman", serif;
+            overflow: hidden;
+        }
+
+        .page {
+            position: relative;
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            padding: 28px 18px;
+            isolation: isolate;
+        }
+
+        .background-glow {
+            position: absolute;
+            top: 43%;
+            left: 50%;
+            width: min(72vw, 620px);
+            aspect-ratio: 1;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255, 95, 0, 0.22) 0%,
+                    rgba(255, 65, 0, 0.09) 38%,
+                    transparent 72%
+                );
+            filter: blur(26px);
+            animation: glowPulse 4s ease-in-out infinite;
+            z-index: -2;
+        }
+
+        .content {
+            width: min(94vw, 820px);
+            text-align: center;
+            animation: fadeIn 1.6s ease-out both;
+        }
+
+        .logo-wrap {
+            position: relative;
+            width: clamp(180px, 29vw, 320px);
+            margin: 0 auto 18px;
+        }
+
+        .logo-wrap::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 1%;
+            width: 66%;
+            height: 12%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            background: rgba(255, 86, 0, 0.48);
+            filter: blur(20px);
+            animation: emberBase 3.2s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .logo {
+            display: block;
+            width: 100%;
+            height: auto;
+            background: transparent;
+            filter:
+                drop-shadow(0 0 7px rgba(255, 174, 71, 0.88))
+                drop-shadow(0 0 22px rgba(255, 84, 0, 0.75))
+                drop-shadow(0 0 52px rgba(255, 45, 0, 0.42));
+            animation: breathe 3.2s ease-in-out infinite;
+        }
+
+        .brand {
+            margin-top: 2px;
+            line-height: 0.9;
+        }
+
+        .brand-main {
+            display: block;
+            font-size: clamp(3.5rem, 12vw, 7.8rem);
+            font-weight: 400;
+            letter-spacing: clamp(0.28rem, 1.8vw, 1.15rem);
+            color: transparent;
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffd67a 0%,
+                    #f3a632 34%,
+                    #e85a0a 72%,
+                    #8f2607 100%
+                );
+            background-clip: text;
+            -webkit-background-clip: text;
+            text-shadow:
+                0 0 12px rgba(255, 129, 24, 0.3),
+                0 0 34px rgba(255, 82, 0, 0.2);
+        }
+
+        .brand-rise-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .brand-rise-row::before,
+        .brand-rise-row::after {
+            content: "";
+            width: clamp(42px, 10vw, 90px);
+            height: 1px;
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--ember)
+                );
+            box-shadow: 0 0 8px rgba(255, 85, 0, 0.7);
+        }
+
+        .brand-rise-row::after {
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--ember),
+                    transparent
+                );
+        }
+
+        .brand-rise {
+            display: block;
+            font-size: clamp(1.65rem, 5vw, 3.3rem);
+            font-weight: 400;
+            letter-spacing: clamp(0.55rem, 2vw, 1.35rem);
+            color: var(--gold);
+            text-shadow:
+                0 0 8px rgba(255, 144, 33, 0.35),
+                0 0 20px rgba(255, 79, 0, 0.18);
+        }
+
+        .story {
+            max-width: 660px;
+            margin: 38px auto 0;
+            font-size: clamp(1.05rem, 2.4vw, 1.55rem);
+            line-height: 1.65;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .story strong {
+            color: var(--ember-bright);
+            font-weight: 400;
+        }
+
+        .coming-soon {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 34px;
+            color: var(--ember-bright);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.38rem;
+            text-transform: uppercase;
+        }
+
+        .coming-soon::before,
+        .coming-soon::after {
+            content: "";
+            width: 48px;
+            height: 1px;
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--ember)
+                );
+            box-shadow: 0 0 8px rgba(255, 90, 0, 0.6);
+        }
+
+        .coming-soon::after {
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--ember),
+                    transparent
+                );
+        }
+
+        .ember {
+            position: absolute;
+            bottom: -12px;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--ember-bright);
+            box-shadow:
+                0 0 6px var(--ember),
+                0 0 12px rgba(255, 65, 0, 0.8);
+            opacity: 0;
+            animation: rise linear infinite;
+            z-index: -1;
+        }
+
+        .ember:nth-child(1) {
+            left: 16%;
+            animation-duration: 7s;
+            animation-delay: 0s;
+        }
+
+        .ember:nth-child(2) {
+            left: 28%;
+            width: 2px;
+            height: 2px;
+            animation-duration: 9s;
+            animation-delay: 2s;
+        }
+
+        .ember:nth-child(3) {
+            left: 41%;
+            animation-duration: 8s;
+            animation-delay: 4s;
+        }
+
+        .ember:nth-child(4) {
+            left: 58%;
+            width: 4px;
+            height: 4px;
+            animation-duration: 10s;
+            animation-delay: 1s;
+        }
+
+        .ember:nth-child(5) {
+            left: 71%;
+            width: 2px;
+            height: 2px;
+            animation-duration: 7.5s;
+            animation-delay: 5s;
+        }
+
+        .ember:nth-child(6) {
+            left: 84%;
+            animation-duration: 9.5s;
+            animation-delay: 3s;
+        }
+
+        @keyframes breathe {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.025);
+            }
+        }
+
+        @keyframes glowPulse {
+            0%,
+            100% {
+                opacity: 0.7;
+                transform: translate(-50%, -50%) scale(0.96);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.05);
+            }
+        }
+
+        @keyframes emberBase {
+            0%,
+            100% {
+                opacity: 0.55;
+                transform: translateX(-50%) scaleX(0.9);
+            }
+
+            50% {
+                opacity: 0.95;
+                transform: translateX(-50%) scaleX(1.08);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes rise {
+            0% {
+                opacity: 0;
+                transform: translateY(0) translateX(0) scale(0.7);
+            }
+
+            12% {
+                opacity: 0.9;
+            }
+
+            70% {
+                opacity: 0.45;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-105vh) translateX(38px) scale(1.15);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .page {
+                padding: 22px 16px;
+            }
+
+            .logo-wrap {
+                width: min(46vw, 230px);
+                margin-bottom: 14px;
+            }
+
+            .brand-main {
+                letter-spacing: 0.28rem;
+            }
+
+            .brand-rise-row {
+                gap: 10px;
+                margin-top: 14px;
+            }
+
+            .brand-rise {
+                letter-spacing: 0.62rem;
+            }
+
+            .story {
+                max-width: 350px;
+                margin-top: 30px;
+            }
+
+            .coming-soon {
+                gap: 10px;
+                letter-spacing: 0.25rem;
+            }
+
+            .coming-soon::before,
+            .coming-soon::after {
+                width: 28px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
