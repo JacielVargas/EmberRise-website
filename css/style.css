@@ -214,73 +214,225 @@
                 );
         }
 
-        .ember {
-            position: absolute;
-            bottom: -12px;
-            width: 3px;
-            height: 3px;
-            border-radius: 50%;
-            background: var(--ember-bright);
-            box-shadow:
-                0 0 6px var(--ember),
-                0 0 12px rgba(255, 65, 0, 0.8);
-            opacity: 0;
-            animation: rise linear infinite;
-            z-index: -1;
-        }
+        /* Floating ember particles */
 
-        .ember:nth-child(1) {
-            left: 16%;
-            animation-duration: 7s;
-            animation-delay: 0s;
-        }
+.ember {
+    --drift-start: 0px;
+    --drift-middle: 18px;
+    --drift-end: 36px;
+    --ember-scale: 1;
 
-        .ember:nth-child(2) {
-            left: 28%;
-            width: 2px;
-            height: 2px;
-            animation-duration: 9s;
-            animation-delay: 2s;
-        }
+    position: absolute;
+    bottom: -16px;
 
-        .ember:nth-child(3) {
-            left: 41%;
-            animation-duration: 8s;
-            animation-delay: 4s;
-        }
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
 
-        .ember:nth-child(4) {
-            left: 58%;
-            width: 4px;
-            height: 4px;
-            animation-duration: 10s;
-            animation-delay: 1s;
-        }
+    background: var(--ember-bright);
 
-        .ember:nth-child(5) {
-            left: 71%;
-            width: 2px;
-            height: 2px;
-            animation-duration: 7.5s;
-            animation-delay: 5s;
-        }
+    box-shadow:
+        0 0 5px var(--ember),
+        0 0 12px rgba(255, 80, 0, 0.8),
+        0 0 20px rgba(255, 45, 0, 0.35);
 
-        .ember:nth-child(6) {
-            left: 84%;
-            animation-duration: 9.5s;
-            animation-delay: 3s;
-        }
+    opacity: 0;
+
+    animation:
+        emberRise linear infinite,
+        emberFlicker ease-in-out infinite;
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* Ember 1 — slow, drifting right */
+
+.ember:nth-child(1) {
+    left: 12%;
+
+    width: 3px;
+    height: 3px;
+
+    --drift-middle: 20px;
+    --drift-end: 48px;
+    --ember-scale: 1.05;
+
+    animation-duration: 10s, 1.8s;
+    animation-delay: 0s, 0.2s;
+}
+
+
+/* Ember 2 — tiny, drifting left */
+
+.ember:nth-child(2) {
+    left: 27%;
+
+    width: 2px;
+    height: 2px;
+
+    --drift-middle: -14px;
+    --drift-end: -34px;
+    --ember-scale: 0.8;
+
+    animation-duration: 13s, 2.4s;
+    animation-delay: 2.5s, 0.8s;
+}
+
+
+/* Ember 3 — brighter, faster spark */
+
+.ember:nth-child(3) {
+    left: 41%;
+
+    width: 4px;
+    height: 4px;
+
+    --drift-middle: 10px;
+    --drift-end: 28px;
+    --ember-scale: 1.2;
+
+    animation-duration: 8.5s, 1.3s;
+    animation-delay: 4s, 0s;
+}
+
+
+/* Ember 4 — large, slow curve left */
+
+.ember:nth-child(4) {
+    left: 58%;
+
+    width: 4px;
+    height: 4px;
+
+    --drift-middle: -18px;
+    --drift-end: -46px;
+    --ember-scale: 1.15;
+
+    animation-duration: 12s, 2s;
+    animation-delay: 1s, 0.4s;
+}
+
+
+/* Ember 5 — faint background ember */
+
+.ember:nth-child(5) {
+    left: 73%;
+
+    width: 2px;
+    height: 2px;
+
+    --drift-middle: 12px;
+    --drift-end: 24px;
+    --ember-scale: 0.7;
+
+    animation-duration: 15s, 2.8s;
+    animation-delay: 5s, 1.2s;
+}
+
+
+/* Ember 6 — medium spark drifting left */
+
+.ember:nth-child(6) {
+    left: 87%;
+
+    width: 3px;
+    height: 3px;
+
+    --drift-middle: -10px;
+    --drift-end: -30px;
+    --ember-scale: 0.95;
+
+    animation-duration: 11s, 1.6s;
+    animation-delay: 3s, 0.6s;
+}
+
+
+/* Natural upward movement */
+
+@keyframes emberRise {
+    0% {
+        opacity: 0;
+        transform:
+            translate3d(var(--drift-start), 0, 0)
+            scale(0.55);
+    }
+
+    8% {
+        opacity: 0.95;
+    }
+
+    38% {
+        transform:
+            translate3d(var(--drift-middle), -38vh, 0)
+            scale(var(--ember-scale));
+    }
+
+    68% {
+        opacity: 0.65;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate3d(var(--drift-end), -112vh, 0)
+            scale(0.35);
+    }
+}
+
+
+/* Small irregular brightness changes */
+
+@keyframes emberFlicker {
+    0%,
+    100% {
+        filter: brightness(0.8);
+    }
+
+    24% {
+        filter: brightness(1.6);
+    }
+
+    47% {
+        filter: brightness(1);
+    }
+
+    72% {
+        filter: brightness(1.9);
+    }
+
+    88% {
+        filter: brightness(0.9);
+    }
+}
 
         @keyframes breathe {
-            0%,
-            100% {
-                transform: scale(1);
-            }
+    0%,
+    100% {
+        transform: scale(1);
+        filter:
+            drop-shadow(0 0 7px rgba(255, 174, 71, 0.78))
+            drop-shadow(0 0 20px rgba(255, 84, 0, 0.66))
+            drop-shadow(0 0 46px rgba(255, 45, 0, 0.34));
+    }
 
-            50% {
-                transform: scale(1.025);
-            }
-        }
+    42% {
+        transform: scale(1.018);
+        filter:
+            drop-shadow(0 0 9px rgba(255, 190, 90, 0.92))
+            drop-shadow(0 0 27px rgba(255, 92, 0, 0.78))
+            drop-shadow(0 0 58px rgba(255, 45, 0, 0.43));
+    }
+
+    58% {
+        transform: scale(1.026);
+        filter:
+            drop-shadow(0 0 8px rgba(255, 170, 65, 0.85))
+            drop-shadow(0 0 23px rgba(255, 78, 0, 0.72))
+            drop-shadow(0 0 51px rgba(255, 38, 0, 0.38));
+    }
+}
 
         @keyframes glowPulse {
             0%,
