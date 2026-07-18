@@ -25,12 +25,12 @@
     font-family: Georgia, "Times New Roman", serif;
     overflow-x: hidden;
     overflow-y: auto;
-        }
+}
 
         .page {
     position: relative;
     display: flex;
-    min-height: 100vh;
+    min-height: 100svh;
     align-items: center;
     justify-content: center;
     padding: 60px 18px;
