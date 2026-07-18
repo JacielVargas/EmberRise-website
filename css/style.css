@@ -221,6 +221,24 @@
     transform: translateY(18px);
 }
 
+.intro-item.show {
+    animation: introReveal 1s ease-out forwards;
+}
+
+@keyframes introReveal {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+        filter: blur(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
         /* Floating ember particles */
 
 .ember {
