@@ -13,6 +13,11 @@ window.addEventListener("scroll", updateHeader);
 updateHeader();
 
 const introItems = document.querySelectorAll(".intro-item");
+const glow = document.querySelector(".background-glow");
+
+setTimeout(() => {
+    glow.classList.add("show");
+}, 250);
 
 introItems.forEach((item, index) => {
     setTimeout(() => {
