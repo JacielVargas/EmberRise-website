@@ -1,5 +1,11 @@
 const siteHeader = document.querySelector(".site-header");
 
+if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+}
+
+window.scrollTo(0, 0);
+
 function updateHeader() {
     if (window.scrollY > 40) {
         siteHeader.classList.add("scrolled");
