@@ -11,3 +11,11 @@ function updateHeader() {
 window.addEventListener("scroll", updateHeader);
 
 updateHeader();
+
+const introItems = document.querySelectorAll(".intro-item");
+
+introItems.forEach((item, index) => {
+    setTimeout(() => {
+        item.classList.add("show");
+    }, 700 + index * 700);
+});
