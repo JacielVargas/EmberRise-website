@@ -554,3 +554,8 @@
 
     z-index: 10;
 }
+.site-name,
+.site-nav a {
+    color: rgba(255, 255, 255, 0.82);
+    text-decoration: none;
+}
