@@ -214,6 +214,13 @@
                 );
         }
 
+/* Cinematic intro starting state */
+
+.intro-item {
+    opacity: 0;
+    transform: translateY(18px);
+}
+
         /* Floating ember particles */
 
 .ember {
