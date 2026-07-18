@@ -563,6 +563,19 @@ box-shadow:
     0 1px 12px rgba(255, 90, 0, 0.04);
 
     z-index: 10;
+
+            transition:
+    padding 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+
+            .site-header.scrolled {
+    padding: 14px 40px;
+    background: rgba(8, 8, 8, 0.82);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.38),
+        0 1px 12px rgba(255, 90, 0, 0.06);
 }
 .site-name,
 .site-nav a {
