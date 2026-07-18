@@ -580,3 +580,13 @@
                 text-shadow 0.3s ease,
                 transform 0.3s ease;
 }
+.site-name:hover,
+.site-nav a:hover {
+    color: var(--ember-bright);
+
+    text-shadow:
+        0 0 8px rgba(255, 170, 70, 0.6),
+        0 0 18px rgba(255, 110, 0, 0.35);
+
+    transform: translateY(-2px);
+}
