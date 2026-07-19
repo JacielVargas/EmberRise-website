@@ -563,6 +563,10 @@
         0 0 20px rgba(255,90,0,.06);
 }
 
+                    .site-nav.open {
+    display: flex;
+}
+
                     .site-nav a {
     display: block;
 
