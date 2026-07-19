@@ -36,3 +36,10 @@ introItems.forEach((item, index) => {
         item.classList.add("show");
     }, 700 + index * 700);
 });
+
+const menuToggle = document.querySelector(".menu-toggle");
+const siteNav = document.querySelector(".site-nav");
+
+menuToggle.addEventListener("click", () => {
+    siteNav.classList.toggle("open");
+});
