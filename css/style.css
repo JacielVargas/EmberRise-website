@@ -540,6 +540,18 @@
     display: none;
 }
 
+                    .site-header {
+    padding: 18px 20px;
+}
+
+.menu-toggle {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+                    
 .menu-toggle {
     display: block;
 }
