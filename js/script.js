@@ -39,7 +39,31 @@ introItems.forEach((item, index) => {
 
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
+const navLinks = document.querySelectorAll(".site-nav a");
+
+function closeMenu() {
+    siteNav.classList.remove("open");
+    menuToggle.classList.remove("open");
+
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation menu");
+
+    document.body.classList.remove("menu-open");
+}
 
 menuToggle.addEventListener("click", () => {
-    siteNav.classList.toggle("open");
+    const menuIsOpen = siteNav.classList.toggle("open");
+
+    menuToggle.classList.toggle("open", menuIsOpen);
+    menuToggle.setAttribute("aria-expanded", String(menuIsOpen));
+    menuToggle.setAttribute(
+        "aria-label",
+        menuIsOpen ? "Close navigation menu" : "Open navigation menu"
+    );
+
+    document.body.classList.toggle("menu-open", menuIsOpen);
+});
+
+navLinks.forEach((link) => {
+    link.addEventListener("click", closeMenu);
 });
