@@ -549,10 +549,16 @@
 
 .menu-toggle {
     display: flex;
+    width: 44px;
+    height: 44px;
 
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    border: 0;
+    background: transparent;
+    cursor: pointer;
 }
                     
             .page {
