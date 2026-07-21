@@ -535,31 +535,6 @@
             }
         }
 
-            .brand-rise-row {
-                gap: 10px;
-                margin-top: 14px;
-            }
-
-            .brand-rise {
-                letter-spacing: 0.62rem;
-            }
-
-            .story {
-                max-width: 350px;
-                margin-top: 30px;
-            }
-
-            .coming-soon {
-                gap: 10px;
-                letter-spacing: 0.25rem;
-            }
-
-            .coming-soon::before,
-            .coming-soon::after {
-                width: 28px;
-            }
-        }
-
         @media (prefers-reduced-motion: reduce) {
             *,
             *::before,
