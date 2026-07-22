@@ -995,3 +995,254 @@ height: 100dvh;
         transition: none;
     }
 }
+
+/* ========================================
+   JOURNEY PAGE
+======================================== */
+
+.journey-page {
+    background: #000;
+    color: var(--text);
+}
+
+.journey-hero {
+    position: relative;
+
+    min-height: 92svh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 130px 24px 90px;
+
+    text-align: center;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.journey-glow {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+
+    width: min(75vw, 700px);
+    aspect-ratio: 1;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 95, 0, 0.16) 0%,
+            rgba(255, 70, 0, 0.06) 42%,
+            transparent 72%
+        );
+
+    filter: blur(34px);
+    z-index: -1;
+}
+
+.journey-eyebrow,
+.journey-label {
+    color: var(--ember-bright);
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+}
+
+.journey-eyebrow {
+    margin-bottom: 20px;
+}
+
+.journey-hero h1 {
+    max-width: 980px;
+
+    color: var(--text);
+
+    font-size: clamp(3rem, 8vw, 6.4rem);
+    font-weight: 400;
+    line-height: 1.06;
+}
+
+.journey-intro {
+    max-width: 720px;
+
+    margin-top: 30px;
+
+    color: var(--muted);
+
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    line-height: 1.75;
+}
+
+.journey-timeline {
+    position: relative;
+
+    width: min(1100px, calc(100% - 40px));
+
+    margin: 0 auto;
+    padding: 40px 0 140px;
+}
+
+.journey-timeline::before {
+    content: "";
+
+    position: absolute;
+    top: 40px;
+    bottom: 140px;
+    left: 170px;
+
+    width: 1px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(255, 120, 25, 0.5) 8%,
+            rgba(255, 120, 25, 0.22) 92%,
+            transparent
+        );
+}
+
+.journey-milestone {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 130px 40px 1fr;
+    gap: 20px;
+
+    min-height: 330px;
+
+    padding: 35px 0;
+}
+
+.journey-year {
+    padding-top: 5px;
+
+    color: rgba(255, 255, 255, 0.5);
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    letter-spacing: 0.16rem;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.journey-marker {
+    position: relative;
+
+    width: 15px;
+    height: 15px;
+
+    margin: 4px auto 0;
+
+    border: 2px solid var(--ember-bright);
+    border-radius: 50%;
+
+    background: #000;
+
+    box-shadow:
+        0 0 12px rgba(255, 120, 25, 0.55),
+        0 0 28px rgba(255, 80, 0, 0.18);
+}
+
+.journey-content {
+    max-width: 700px;
+
+    padding: 0 0 50px 34px;
+}
+
+.journey-label {
+    margin-bottom: 16px;
+}
+
+.journey-content h2 {
+    color: var(--text);
+
+    font-size: clamp(2rem, 4vw, 3.8rem);
+    font-weight: 400;
+    line-height: 1.12;
+}
+
+.journey-content p:last-child {
+    max-width: 640px;
+
+    margin-top: 22px;
+
+    color: var(--muted);
+
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    line-height: 1.75;
+}
+
+.journey-future .journey-marker {
+    background: var(--ember-bright);
+
+    box-shadow:
+        0 0 18px rgba(255, 120, 25, 0.8),
+        0 0 42px rgba(255, 80, 0, 0.32);
+}
+
+@media (max-width: 700px) {
+    .journey-hero {
+        min-height: 82svh;
+        padding: 115px 20px 70px;
+    }
+
+    .journey-timeline {
+        width: min(100% - 32px, 650px);
+        padding-bottom: 100px;
+    }
+
+    .journey-timeline::before {
+        left: 7px;
+        bottom: 100px;
+    }
+
+    .journey-milestone {
+        grid-template-columns: 16px 1fr;
+        gap: 18px;
+
+        min-height: auto;
+
+        padding: 30px 0 70px;
+    }
+
+    .journey-year {
+        grid-column: 2;
+
+        padding-top: 0;
+
+        text-align: left;
+    }
+
+    .journey-marker {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+
+        width: 14px;
+        height: 14px;
+
+        margin-top: 4px;
+    }
+
+    .journey-content {
+        grid-column: 2;
+
+        padding: 0;
+    }
+
+    .journey-label {
+        margin-top: 14px;
+    }
+}
