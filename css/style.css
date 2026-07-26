@@ -261,6 +261,21 @@ body.menu-open {
     }
 }
 
+
+/* ========================================
+   GLOBAL EMBER FIELD
+======================================== */
+
+.embers {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+    pointer-events: none;
+
+    z-index: 0;
+}
+
         /* Floating ember particles */
 
 .ember {
@@ -290,7 +305,7 @@ body.menu-open {
         emberFlicker ease-in-out infinite;
 
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
 }
 
 
@@ -742,8 +757,11 @@ height: 100dvh;
 ======================================== */
 
 .story-page {
+    position: relative;
     background: #000;
     color: var(--text);
+    overflow: hidden;
+    isolation: isolate;
 }
 
 .story-hero,
@@ -757,22 +775,20 @@ height: 100dvh;
     align-items: center;
     justify-content: center;
 
-    padding: 120px 24px 80px;
+    padding: 150px 24px;
 
     text-align: center;
-    overflow: hidden;
 }
-
 .story-hero {
     isolation: isolate;
 }
 
 .story-glow {
-    position: absolute;
-    top: 45%;
+    position: fixed;
+    top: 50%;
     left: 50%;
 
-    width: min(72vw, 620px);
+    width: min(82vw, 760px);
     aspect-ratio: 1;
 
     transform: translate(-50%, -50%);
@@ -782,13 +798,15 @@ height: 100dvh;
     background:
         radial-gradient(
             circle,
-            rgba(255, 95, 0, 0.2) 0%,
-            rgba(255, 65, 0, 0.08) 40%,
+            rgba(255, 95, 0, 0.16) 0%,
+            rgba(255, 65, 0, 0.06) 42%,
             transparent 72%
         );
 
-    filter: blur(28px);
-    z-index: -1;
+    filter: blur(42px);
+    pointer-events: none;
+
+    z-index: 0;
 }
 
 .story-logo {
@@ -846,38 +864,15 @@ height: 100dvh;
     line-height: 1.75;
 }
 
+.story-hero,
 .story-scene {
-    border-top: 1px solid rgba(255, 140, 50, 0.08);
+    z-index: 1;
 }
 
-.story-scene::before {
-    content: "";
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    width: min(58vw, 500px);
-    aspect-ratio: 1;
-
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255, 90, 0, 0.08),
-            transparent 70%
-        );
-
-    filter: blur(34px);
-    pointer-events: none;
-}
-
+.story-hero > *,
 .story-scene > * {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .story-closing {
