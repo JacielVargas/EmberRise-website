@@ -874,19 +874,8 @@ height: 100dvh;
     line-height: 1.75;
 }
 
-.story-hero,
-.story-scene {
-    z-index: 1;
-}
-
-.story-hero > *:not(.story-glow):not(.embers),
-.story-scene > *:not(.story-glow):not(.embers) {
-    position: relative;
-    z-index: 2;
-}
-
 .story-closing {
-    padding-bottom: 120px;
+    padding-bottom: 150px;
 }
 
 .story-link {
