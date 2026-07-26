@@ -273,7 +273,7 @@ body.menu-open {
     overflow: hidden;
     pointer-events: none;
 
-    z-index: 0;
+    z-index: 1;
 }
 
         /* Floating ember particles */
@@ -758,15 +758,19 @@ height: 100dvh;
 
 .story-page {
     position: relative;
+    min-height: 100svh;
+
     background: #000;
     color: var(--text);
-    overflow: hidden;
+
+    overflow-x: hidden;
     isolation: isolate;
 }
 
 .story-hero,
 .story-scene {
     position: relative;
+    z-index: 2;
 
     min-height: 100svh;
 
@@ -779,9 +783,8 @@ height: 100dvh;
 
     text-align: center;
 }
-.story-hero {
-    isolation: isolate;
-}
+
+/* One continuous page-level glow */
 
 .story-glow {
     position: fixed;
@@ -792,7 +795,6 @@ height: 100dvh;
     aspect-ratio: 1;
 
     transform: translate(-50%, -50%);
-
     border-radius: 50%;
 
     background:
@@ -807,6 +809,14 @@ height: 100dvh;
     pointer-events: none;
 
     z-index: 0;
+}
+
+/* Keep real content above the glow and embers */
+
+.story-hero > *:not(.story-glow):not(.embers),
+.story-scene > *:not(.story-glow):not(.embers) {
+    position: relative;
+    z-index: 2;
 }
 
 .story-logo {
@@ -869,8 +879,8 @@ height: 100dvh;
     z-index: 1;
 }
 
-.story-hero > *,
-.story-scene > * {
+.story-hero > *:not(.story-glow):not(.embers),
+.story-scene > *:not(.story-glow):not(.embers) {
     position: relative;
     z-index: 2;
 }
