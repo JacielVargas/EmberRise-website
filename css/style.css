@@ -85,6 +85,37 @@ body.menu-open {
             animation: fadeIn 1.6s ease-out both;
         }
 
+/* ========================================
+   NEW HOMEPAGE EMBERRISE WORDMARK
+======================================== */
+
+.hero-brand {
+    position: relative;
+
+    width: clamp(300px, 42vw, 500px);
+
+    margin: 0 auto 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-brand-image {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 0 7px rgba(255, 174, 71, 0.55))
+        drop-shadow(0 0 20px rgba(255, 84, 0, 0.30));
+
+    animation: breathe 3.2s ease-in-out infinite;
+}
+
         .logo-wrap {
             position: relative;
             width: clamp(180px, 29vw, 320px);
@@ -1240,5 +1271,12 @@ height: 100dvh;
 
     .journey-label {
         margin-top: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-brand {
+        width: min(82vw, 360px);
+        margin-bottom: 22px;
     }
 }
