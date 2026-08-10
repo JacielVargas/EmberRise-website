@@ -1282,3 +1282,11 @@ height: 100dvh;
     height: auto;
     object-fit: contain;
 }
+
+.hero-content {
+    transform: translateY(-25px);
+}
+
+.tagline {
+    font-size: 1rem;
+}
