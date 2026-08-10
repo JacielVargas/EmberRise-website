@@ -886,6 +886,57 @@ height: 100dvh;
     letter-spacing: 0.01em;
 }
 
+/* ========================================
+   CONTINUOUS STORY NARRATIVE
+======================================== */
+
+.story-narrative {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    padding: 40px 24px 140px;
+}
+
+.story-narrative-inner {
+    width: min(760px, 100%);
+    margin: 0 auto;
+}
+
+.story-narrative p {
+    margin: 0 0 54px;
+
+    color: var(--muted);
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    line-height: 1.9;
+    letter-spacing: 0.01em;
+}
+
+.story-narrative p strong {
+    display: inline-block;
+    margin-bottom: 2px;
+
+    color: var(--ember-bright);
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+
+    letter-spacing: 0.18rem;
+    text-transform: uppercase;
+}
+
+.story-narrative p em {
+    color: var(--text);
+    font-style: normal;
+}
+
+.story-narrative .story-link {
+    margin-top: 10px;
+}
+
 .story-closing {
     padding-bottom: 150px;
 }
@@ -951,6 +1002,20 @@ height: 100dvh;
         margin-top: 22px;
         line-height: 1.65;
     }
+
+            .story-narrative {
+    padding: 30px 20px 100px;
+}
+
+.story-narrative p {
+    margin-bottom: 42px;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.story-narrative p strong {
+    font-size: 0.76rem;
+    letter-spacing: 0.14rem;
 }
 
 /* ========================================
