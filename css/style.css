@@ -1018,6 +1018,17 @@ height: 100dvh;
     letter-spacing: 0.14rem;
 }
 
+            .story-narrative p strong {
+    font-size: 0.76rem;
+    letter-spacing: 0.14rem;
+}
+
+} 
+
+/* ========================================
+   SCROLL REVEAL ANIMATIONS
+======================================== */
+
 /* ========================================
    SCROLL REVEAL ANIMATIONS
 ======================================== */
