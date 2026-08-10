@@ -86,19 +86,25 @@ body.menu-open {
         }
 
 /* ========================================
-   NEW HOMEPAGE EMBERRISE WORDMARK
+   HOMEPAGE EMBERRISE WORDMARK
 ======================================== */
 
 .hero-brand {
-    position: relative;
+    width: clamp(280px, 38vw, 470px);
+    margin: 0 auto 26px;
+}
 
-    width: clamp(300px, 42vw, 500px);
+.hero-brand-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 
-    margin: 0 auto 24px;
+    filter:
+        drop-shadow(0 0 7px rgba(255, 174, 71, 0.45))
+        drop-shadow(0 0 20px rgba(255, 84, 0, 0.24));
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    animation: breathe 3.2s ease-in-out infinite;
 }
 
 .hero-brand-image {
@@ -1275,8 +1281,16 @@ height: 100dvh;
 }
 
 @media (max-width: 600px) {
+    .site-header {
+        padding: 14px 20px;
+    }
+
+    .site-header.scrolled {
+        padding: 10px 20px;
+    }
+
     .hero-brand {
-        width: min(82vw, 360px);
+        width: min(82vw, 340px);
         margin-bottom: 22px;
     }
 }
